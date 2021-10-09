@@ -131,7 +131,31 @@ class InvoiceController extends Controller
         $sections=Section::all();
         return view('invoices.edit_invoice',compact('invoice','sections'));
     }
-
+    public function status_show($id)
+    {
+        $invoice=Invoice::find($id);
+        return view('invoices.status_show',compact('invoice'));
+    }
+    public function status_update(Request $request,$id)
+    {
+      
+       
+        if($request->status === 'مدفوع'){
+           
+            $invoice=Invoice::findorfail($id);
+            $invoice_detailes=Invoice_Detaile::where('id_invoice', $id);
+            $invoice->update([
+                'status'=>$request->status,
+                'value_status'=>1,
+                'payment_Date'=>$request->payment_Date,
+               ]);
+               $invoice_detailes->update([
+                'status'=>$request->status,
+                'value_status'=>1,
+               ]);
+        }
+        return redirect('/invoices');
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -188,7 +212,7 @@ class InvoiceController extends Controller
            session()->flash('edit',"تم تعديل الفاتوره بنجاح");
            return back();
     }
-
+  
     /**
      * Remove the specified resource from storage.
      *

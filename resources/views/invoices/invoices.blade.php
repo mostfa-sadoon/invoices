@@ -95,7 +95,7 @@
 															<button class="btn btn-outline-danger btn-sm " data-invice_id="{{ $invoice->id }}"
 																data-invoice_number="{{ $invoice->invoice_number }}" data-toggle="modal"
 																data-target="#modaldemo9"> حذف الفاتوره</button>
-															<a class="dropdown-item" href="#">Something else here</a>
+															<a class="dropdown-item btn " href="{{route('show',[$invoice->id])}}"> حاله الدفع</a>
 														</div>
 													</div>
 												</td>

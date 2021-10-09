@@ -19,6 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/archive/{id}','InvoiceController@restore')->name('restore');
+Route::get('/status_show/{id}','InvoiceController@status_show')->name('show');
+Route::POST('/status_update/{id}','InvoiceController@status_update')->name('status_update');
 Route::get('/archive','InvoiceController@archive')->name('archive');
 
 Route::resource('invoices','InvoiceController');
