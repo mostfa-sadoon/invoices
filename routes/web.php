@@ -22,6 +22,12 @@ Route::get('/archive/{id}','InvoiceController@restore')->name('restore');
 Route::get('/status_show/{id}','InvoiceController@status_show')->name('show');
 Route::POST('/status_update/{id}','InvoiceController@status_update')->name('status_update');
 Route::get('/archive','InvoiceController@archive')->name('archive');
+Route::get('/invoice_paid','InvoiceController@paid')->name('paid');
+Route::get('/invoice_unpaid','InvoiceController@unpaid')->name('unpaid');
+Route::get('/invoice_partial_paid','InvoiceController@partial_paid')->name('partial_paid');
+
+
+
 
 Route::resource('invoices','InvoiceController');
 Route::resource('sections','SectionController');

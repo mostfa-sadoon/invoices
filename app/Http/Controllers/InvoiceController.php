@@ -156,6 +156,21 @@ class InvoiceController extends Controller
         }
         return redirect('/invoices');
     }
+    public function paid()
+    {
+        $invoices=Invoice::where('value_status',1)->get();
+        return view('invoices.paid_invoices',compact('invoices'));
+    }
+    public function unpaid()
+    {
+        $invoices=Invoice::where('value_status',2)->get();
+        return view('invoices.unpaid_invoices',compact('invoices'));
+    }
+    public function partial_paid()
+    {
+        $invoices=Invoice::where('value_status',3)->get();
+        return view('invoices.partial_paid_invoices',compact('invoices'));
+    }
     /**
      * Update the specified resource in storage.
      *
