@@ -171,6 +171,11 @@ class InvoiceController extends Controller
         $invoices=Invoice::where('value_status',3)->get();
         return view('invoices.partial_paid_invoices',compact('invoices'));
     }
+    public function print_invoice($id)
+    {
+        $invoice=Invoice::find($id);
+        return view('invoices.print_invoice',compact('invoice'));
+    }
     /**
      * Update the specified resource in storage.
      *

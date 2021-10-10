@@ -96,6 +96,7 @@
 																data-invoice_number="{{ $invoice->invoice_number }}" data-toggle="modal"
 																data-target="#modaldemo9"> حذف الفاتوره</button>
 															<a class="dropdown-item btn " href="{{route('show',[$invoice->id])}}"> حاله الدفع</a>
+															<a class="dropdown-item btn " href="{{route('print_invoice',[$invoice->id])}}"> طباعه فاتوره</a>
 														</div>
 													</div>
 												</td>

@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/archive/{id}','InvoiceController@restore')->name('restore');
 Route::get('/status_show/{id}','InvoiceController@status_show')->name('show');
+Route::get('/print_invoice/{id}','InvoiceController@print_invoice')->name('print_invoice');
 Route::POST('/status_update/{id}','InvoiceController@status_update')->name('status_update');
 Route::get('/archive','InvoiceController@archive')->name('archive');
 Route::get('/invoice_paid','InvoiceController@paid')->name('paid');

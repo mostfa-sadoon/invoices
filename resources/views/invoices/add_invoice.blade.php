@@ -92,7 +92,7 @@
 
                             <div class="col">
                                 <label for="inputName" class="control-label">مبلغ التحصيل</label>
-                                <input type="text" class="form-control" id="inputName" name="Amount_collection"
+                                <input type="text" class="form-control" id="Amount_Commission" name="Amount_collection"
                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                             </div>
                         </div>
