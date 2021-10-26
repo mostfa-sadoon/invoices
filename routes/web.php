@@ -36,6 +36,7 @@ Route::resource('products','ProductController');
 Route::POST('/invoice/{id}','InvoiceController@update')->name('invoices.update');
 Route::get('/section/{id}','InvoiceController@getproducts');
 Route::get('invoicesDetails/{section_id}','InvoiceDetaileController@index');
+Route::get('Export/invoices','InvoiceController@excel')->name('Export.excel');
 Route::get('/{page}', 'AdminController@index');
 
 

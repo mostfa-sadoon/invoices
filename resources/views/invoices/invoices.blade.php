@@ -24,7 +24,8 @@
 				<!-- breadcrumb -->
 @endsection
 @section('content')
-				<!-- row opened -->
+				<!-- row opened --> 
+			
 				<div class="row row-sm">
 				  
 			
@@ -35,7 +36,7 @@
 							<a href="invoices/create" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
                                 class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
 
-
+								<div class="d-flex"><a class="btn btn-primary mr-auto" href="{{route('Export.excel')}}">export into excel</a></div>
 								<div class="d-flex justify-content-between">
 									<h4 class="card-title mg-b-0">Bordered Table</h4>
 									<i class="mdi mdi-dots-horizontal text-gray"></i>

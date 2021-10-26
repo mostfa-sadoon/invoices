@@ -5,10 +5,15 @@ use App\Invoice;
 use App\Section;
 use Illuminate\Support\Facades\Storage;
 use App\Invoice_Detaile;
+use App\User;
 use App\ Invoice_attachment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\Addinvoice;
+use Illuminate\Support\Facades\Notification;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BulkExport;
 class InvoiceController extends Controller
 {
     /**
@@ -103,6 +108,8 @@ class InvoiceController extends Controller
             $imagename=$request->pic->getClientOriginalName();
             $request->pic->move(public_path('Attatchments/'.$invoice_id),$imagename);
         }
+        $user=Auth::user();
+        Notification::send($user,new Addinvoice($invoice_id));
         session()->flash('add',"تم اضافه الفاتوره بنجاح");
         return back();
     }
@@ -261,5 +268,8 @@ class InvoiceController extends Controller
              return redirect('/archive');
         }
     }
-  
+    public function excel()
+    {
+        return Excel::download(new BulkExport, 'bulkData.xlsx');
+    }
 }
