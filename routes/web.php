@@ -45,3 +45,7 @@ Route::get('download/{invoice_id}/{file_name}','InvoiceDetaileController@get_fil
 Route::POST('delete_file','InvoiceDetaileController@destroy')->name('delete_file');
 Route::POST('store_attachment','InvoiceDetaileController@store_attachment')->name('store_attachment');
 
+
+//users
+Route::get('/{page}', 'UserController@index');
+
